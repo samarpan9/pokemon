@@ -8,12 +8,12 @@ async def fetch_pokemon_data(db_pool):
     next_url = 'https://pokeapi.co/api/v2/pokemon'
     
     async with httpx.AsyncClient() as client:
-        while next_url: 
+        # while next_url: 
             response = await client.get(next_url)
 
             if response.status_code != 200:
                 print(f"Request failed with status code: {response.status_code}")
-                break
+                # break
             
             data = response.json()
             results = data.get('results', [])
@@ -38,4 +38,4 @@ async def fetch_pokemon_data(db_pool):
                 
                 await db_helper.insert_pokemon(db_pool, pokemon_name, image, type_list)
                     
-            next_url = data.get('next')
+            # next_url = data.get('next')
