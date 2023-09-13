@@ -1,20 +1,11 @@
-
 from fastapi import FastAPI, Query
-from pydantic import BaseModel
-from typing import Optional, List
-
 
 import db_helper
 
 app = FastAPI()
 
-class Pokemon(BaseModel):
-    name: Optional[str] = None
-    # image: str  
-    # poke_type: list[str]
 
-
-@app.get("/api/v1/pokemons", response_model=list[Pokemon])
+@app.get("/api/v1/pokemons")
 async def get_pokemons(
     name: str = Query(None),
     type: str = Query(None),
@@ -38,7 +29,6 @@ async def get_pokemons(
         
     ext_query += page_query
     data = await db_helper.get_pokemon_data(ext_query)
-    print(data)
     return data
 
 
