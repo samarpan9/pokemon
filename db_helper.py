@@ -1,17 +1,3 @@
-import asyncpg
-
-
-async def create_db_pool():
-    conn = await asyncpg.create_pool(
-        host="localhost",
-        port=5432,
-        user="postgres",
-        password="000",
-        database="pokemon",
-    )
-    return conn
-
-
 async def create_pokemon_table(connection):
     create_table_query = """
     CREATE TABLE IF NOT EXISTS pokemon_list (
