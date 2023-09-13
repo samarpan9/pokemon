@@ -4,8 +4,8 @@ import db_helper
 
 async def fetch_pokemon_data(db_pool):
     # use the url witht the limit to fetch only that number of pokemons. use the other one to fetch all the pokemons from the api.
-    # next_url = 'https://pokeapi.co/api/v2/pokemon?limit=5&offset=1'
-    next_url = 'https://pokeapi.co/api/v2/pokemon'
+    next_url = 'https://pokeapi.co/api/v2/pokemon?limit=10&offset=1'
+    # next_url = 'https://pokeapi.co/api/v2/pokemon'
     
     async with httpx.AsyncClient() as client:
         # while next_url: 
