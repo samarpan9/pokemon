@@ -17,7 +17,13 @@ Populate the config file with your postgresql database
 
 now that everything is setup.
 
-Use seed.py to fetch all the data from pokeAPI. It will fetch all the data using the api_handler and store all the data into postgresql.
+Use seed.py to fetch all the data from pokeAPI as such:
+
+```
+python3 seed.py
+```
+
+It will fetch all the data using the api_handler and store all the data into postgresql.
 
 In api handler's fetch_pokemon_data,
 I've used the limit to fetch just 10 pokemon data. if it is required to fetch all the pokemons than use the other provided url_link with no limits and also uncomment the while, break and next_url statements of line 11, 16, and 41. uncommenting this will fetch all the pokemon data.
